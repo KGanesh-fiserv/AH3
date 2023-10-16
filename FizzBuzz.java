@@ -7,23 +7,22 @@ public class FizzBuzz {
 
         fizzBuzz(ans);
         System.out.println("-----------------------------------------");
-        fizzBuzzRecursive(ans);
+        System.out.print(fizzBuzzRecursive(ans));
     }
 
-    private static void fizzBuzzRecursive(int ans) {
+    private static String fizzBuzzRecursive(int ans) {
         if(ans == 1){
-                System.out.println(1);
+                return "\n1";
         }
         else{
             if(ans%3 == 0 && ans%5 == 0)
-                System.out.println("FizzBuzz");
+                return fizzBuzzRecursive(ans - 1) + "\nFizzBuzz";
             else if(ans%5 ==0)
-                System.out.println("Buzz");
+                return fizzBuzzRecursive(ans - 1) + "\nBuzz";
             else if(ans%3 == 0)
-                System.out.println("Fizz");
+                return fizzBuzzRecursive(ans - 1) + "\nFizz";
             else
-                System.out.println(ans);
-            fizzBuzzRecursive(ans - 1);
+                return fizzBuzzRecursive(ans - 1) + "\n" + Integer.toString(ans);
         }
 
     }
